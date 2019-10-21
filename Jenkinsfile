@@ -2,8 +2,6 @@ node('master'){
    stage('git checkout'){
                   git 'https://github.com/Palanimks/parking_backend.git'
               }
-   stage ('code analysis')
-            sh 'sonar:sonar -Dsonar.login=admin -Dsonar.password=admin'
    
    stage('java build'){
              sh 'mvn clean install sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
